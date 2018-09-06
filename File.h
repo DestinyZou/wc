@@ -20,7 +20,8 @@ public:
 private:
     File(const File&);
     File& operator=(const File&);
-    bool isWord(const string word);
+    bool isWord(const char c);
+    void CountWord(string line);
 public:
     int character_number = 0;
     int line_number = 0;

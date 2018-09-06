@@ -20,12 +20,26 @@ File::print() {
     }
 }
 
+/*如果c是一个合法单词的组成部分，返回true*/
 bool
-File::isWord(const string word) {
-    if (0 == isalpha(word[0])) {
-        return false;
-    } else {
-        return true;
+File::isWord(const char c) {
+    return isalpha(c);
+}
+
+void
+File::CountWord(string line) {
+    istringstream iss(line);
+    char c;
+    for (size_t i = 0; i < line.length(); i++) {
+        c = iss.get();
+        if(isWord(c)) {
+            word_number++;
+        }
+        for (; c != EOF; c = iss.get()) {
+            if (!isWord(c)) {
+                break;
+            }
+        }
     }
 }
 
@@ -38,21 +52,8 @@ File::AnalyseFile() {
         line_number++;
         // 统计字符数
         character_number += line.length();
-
-        // 把一行中所有不是字母、数字、下划线、"-"、"."的字符替换成空格
-        for(char &c : line) {
-            if (c != '_' && !isalnum(c) && c != '-' && c != '.') {
-                c = ' ';
-            }
-        }
-
         // 统计单词
-        istringstream iss(line);
-        while (iss >> word) {
-            if(isWord(word)){
-                word_number++;
-            }
-        }
+        CountWord(line);
     }
 
     cout << "Character: " << character_number << endl;
