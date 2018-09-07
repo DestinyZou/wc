@@ -17,6 +17,9 @@ public:
     ~File();
     void print();
     void AnalyseFile();
+    void PrintWordNum();
+    void PrintLineNum();
+    void PrintCharacterNum();
 private:
     File(const File&);
     File& operator=(const File&);

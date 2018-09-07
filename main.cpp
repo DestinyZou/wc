@@ -3,13 +3,13 @@
 #include <string>
 #include <fstream>
 #include "File.h"
+#include "Option.h"
 
 using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    string filename(argv[1]);
-    File file(filename);
-    file.AnalyseFile();
+    Option opt(argc, argv);
+    opt.Handle();
     return 0;
 }

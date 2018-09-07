@@ -6,6 +6,7 @@ File::File(string name) {
         cout << "cannot open the file" << endl;
         exit(-1);
     }
+    AnalyseFile();
 }
 
 File::~File() {
@@ -56,7 +57,19 @@ File::AnalyseFile() {
         CountWord(line);
     }
 
-    cout << "Character: " << character_number << endl;
+}
+
+void
+File::PrintWordNum() {
     cout << "Word: " << word_number << endl;
+}
+
+void
+File::PrintLineNum() {
     cout << "line: " << line_number << endl;
+}
+
+void
+File::PrintCharacterNum() {
+    cout << "Character: " << character_number << endl;
 }
