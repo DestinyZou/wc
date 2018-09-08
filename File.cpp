@@ -1,9 +1,10 @@
 #include "File.h"
 
 File::File(string name) {
-    in.open(name);
+    filename = name;
+    in.open(filename);
     if (!in) {
-        cout << "cannot open the file" << endl;
+        cout << "cannot open the file: " << filename << endl;
         exit(-1);
     }
     AnalyseFile();
@@ -59,17 +60,22 @@ File::AnalyseFile() {
 
 }
 
-void
-File::PrintWordNum() {
-    cout << "Word: " << word_number << endl;
+size_t
+File::getWordNum() {
+    return word_number;
 }
 
-void
-File::PrintLineNum() {
-    cout << "line: " << line_number << endl;
+size_t
+File::getLineNum() {
+    return line_number;
 }
 
-void
-File::PrintCharacterNum() {
-    cout << "Character: " << character_number << endl;
+size_t
+File::getCharacterNum() {
+    return character_number;
+}
+
+string
+File::getFilename() {
+    return filename;
 }

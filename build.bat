@@ -1,1 +1,1 @@
-g++ main.cpp File.cpp Option.cpp -o wc.exe -std=c++11 -g
+g++ -g File.cpp main.cpp Option.cpp -o wc.exe -std=c++14

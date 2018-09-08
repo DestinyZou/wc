@@ -10,6 +10,6 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
     Option opt(argc, argv);
-    opt.Handle();
+    opt.Print();
     return 0;
 }

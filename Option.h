@@ -6,6 +6,10 @@
 #include <iostream>
 #include <map>
 #include <functional>
+#include <Windows.h>
+#include <string>
+#include "mystring.h"
+#include "utils.h"
 
 using namespace std;
 
@@ -13,16 +17,18 @@ class Option {
 public:
     Option(int argc, char const ** argv);
     ~Option() {
-        delete file;
     }
+    void Print();
+private:
+    void usage();
     void Handle();
+    void Setup();
+    void RegisterAction(string option, function<void(void)> f);
 private:
-    void setup();
-    void registerAction(string option, function<void(void)> f);
-private:
-    File* file;
+    vector<File> files;
     vector<string> option;
     map<string, function<void(void)>> actions;
+    map<string, string> output_each_file;
 };
 
 
