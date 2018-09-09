@@ -1,7 +1,7 @@
 #ifndef __OPTION_H_
 #define __OPTION_H_
 
-#include "File.h"
+#include "Counter.h"
 #include <vector>
 #include <iostream>
 #include <map>
@@ -13,22 +13,22 @@
 
 using namespace std;
 
-class Option {
+class Parse {
 public:
-    Option(int argc, char const ** argv);
-    ~Option() {
+    Parse(int argc, char const ** argv);
+    ~Parse() {
     }
-    void Print();
+    void print();
 private:
     void usage();
-    void Handle();
-    void Setup();
-    void RegisterAction(string option, function<void(void)> f);
+    void handleOption();
+    void setup();
+    void registerAction(string option, function<void(void)> f);
 private:
-    vector<File> files;
-    vector<string> option;
+    vector<Counter> counters;
+    vector<string> options;
     map<string, function<void(void)>> actions;
-    map<string, string> output_each_file;
+    map<string, string> output_per_file;
 };
 
 
