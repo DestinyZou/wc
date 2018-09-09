@@ -21,22 +21,27 @@ Counter::judgePartOfWord(const char c) {
 
 bool
 Counter::judgeBlankLine(string line) {
-    if (0 == line.length()) {
-        return true;
-    }
+    if (0 == line.length()) return true;
+    size_t graph = 0;
     for (auto c : line) {
-        if (!isblank(c)) return false;
+        if (isgraph(c)) graph++;
+        if (graph > 1) return false;
     }
     return true;
 }
 
 bool
 Counter::judgeAndUpdateCommentLine(string line, bool& flag) {
-    if(line[0] == '/' && line[1] == '/') return true;
-    if(line[0] == '}' && line[1] == '/' && line[2] == '/') return true;
-	if(line[0] == '*' && line[1] == '/' && line.length()==2) {flag = false; return true;}
-	if(line[0] == '/' && line[1] == '*' && line.length()==2) return flag = true;
-	if(line[0] == '/' && line[1] == '*' && line.find("*/")==string::npos) return flag = true;
+    if(line[0] == '/' && line[1] == '/') return true;// "//"
+	if(line[0] == '*' && line[1] == '/' && line.length()==2) {flag = false; return true;} // "*/"
+	if(line[0] == '/' && line[1] == '*' && line.length()==2) return flag = true;// "/*"
+	if(line[0] == '/' && line[1] == '*' && line.find("*/")==string::npos) return flag = true; // "/* ... */"
+
+    string::size_type i = 0;
+    while (isblank(line[i])) {
+        i++;
+    }
+    if (line[i] == '}' && line[i+1] == '/' && line[i+2] == '/') return true;// "}//"
     
 	string::size_type index = line.find("/*");
 	if(index != string::npos) {

@@ -8,6 +8,7 @@
 #include <string>
 #include <cctype>
 #include "mystring.h"
+#include "utils.h"
 
 using namespace std;
 

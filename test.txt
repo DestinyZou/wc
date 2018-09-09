@@ -1,9 +1,0 @@
-#include <cstdio>
-
-
-/*
- * a test file
- */
-inn main(void) {
-    printf("xxxxx");
-}//hahahaahah

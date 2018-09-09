@@ -8,6 +8,7 @@
 #include <functional>
 #include <Windows.h>
 #include <string>
+#include <algorithm>
 #include "mystring.h"
 #include "utils.h"
 
