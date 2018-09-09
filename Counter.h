@@ -17,7 +17,7 @@ public:
     ~Counter();
     Counter(Counter &&)=default;
     Counter& operator=(Counter &&)=default;
-    void analyseCounter();
+    void work();
     size_t getWordNum();
     size_t getLineNum();
     size_t getCharacterNum();

@@ -1,1 +1,1 @@
-g++ -g File.cpp main.cpp Option.cpp -o wc.exe -std=c++14
+g++ -g Counter.cpp main.cpp Parse.cpp -o wc.exe -std=c++11

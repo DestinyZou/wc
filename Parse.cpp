@@ -2,6 +2,7 @@
 
 Parse::Parse(int argc, char const ** argv) {
     size_t option_number = 0;
+    size_t file_number = 0;
     for (size_t i = 1; i < argc; ++i) {
         if (argv[i][0] == '-') {
             options.push_back(string(argv[i]));
@@ -15,10 +16,11 @@ Parse::Parse(int argc, char const ** argv) {
                 output_per_file[file_name] = "";
                 Counter f(file_name);
                 counters.push_back(move(f));
+                file_number++;
             }            
         }
     }
-    if (option_number == 0) {
+    if (0 == option_number || 0 == file_number) {
         usage();
         exit(-1);
     }
@@ -88,6 +90,7 @@ Parse::usage() {
                    "The order is depended on the order of options.\n"
                    "  -c    print the character counts\n"
                    "  -w    print the word counts\n"
-                   "  -l    print the newline counts\n");
+                   "  -l    print the newline counts\n"
+                   "  -a    print more information of line");
     cout << usage;
 }

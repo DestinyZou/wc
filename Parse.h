@@ -1,5 +1,5 @@
-#ifndef __OPTION_H_
-#define __OPTION_H_
+#ifndef __PARSE_H_
+#define __PARSE_H_
 
 #include "Counter.h"
 #include <vector>
@@ -32,6 +32,6 @@ private:
 };
 
 
-#endif // !__OPTION_H_
+#endif // !__PARSE_H_
 
 

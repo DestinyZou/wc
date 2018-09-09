@@ -1,5 +1,5 @@
-#ifndef __MYSTRING_H_
-#define __MYSTRING_H_
+#ifndef __MYSTRING_H
+#define __MYSTRING_H
 
 #include <string>
 using namespace std;
@@ -23,15 +23,15 @@ static string Wstr2Str(wstring wstr) {
 }
 
 
-std::string& trim(std::string &s) {
+static string& trim(string &s) {
     if (s.empty()) {
         return s;
     }
  
-    s.erase(0,s.find_first_not_of(" "));
-    s.erase(s.find_last_not_of(" ") + 1);
+    s.erase(0, s.find_first_not_of(" "));
+    s.erase(s. find_last_not_of(" ") + 1);
     return s;
 }
 
+#endif // !__MYSTRING_H
 
-#endif // !__MYSTRING_H_
