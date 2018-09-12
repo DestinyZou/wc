@@ -49,12 +49,9 @@ Parse::setup() {
     });
     registerOption("-a", [&]() {
         for (auto &f : counters) {
-            string append = " Character: " + to_string(f.getCharacterNum());
-            append += " Word: " + to_string(f.getWordNum());
-            append += " Blank line: " + to_string(f.getBlankLineNum());
+            string append = " Blank line: " + to_string(f.getBlankLineNum());
             append += " Code line: " + to_string(f.getCodeLineNum());
             append += " Comment line: " + to_string(f.getCommentLineNum());
-            append += " Line: " + to_string(f.getLineNum());
             output_per_file[f.getFilename()] += append;
         }
     });
@@ -64,17 +61,6 @@ Parse::setup() {
 
 void
 Parse::handleOption() {
-    auto a = find(options.begin(), options.end(), "-a");
-    if (a != options.end()) {
-        auto w = find(options.begin(), options.end(), "-w");
-        if(w != options.end()) options.erase(w);
-
-        auto l = find(options.begin(), options.end(), "-l");
-        if(l != options.end()) options.erase(l);
-
-        auto c = find(options.begin(), options.end(), "-c");
-        if(c != options.end()) options.erase(c);
-    }
     for (auto s : options) {
         if (actions.find(s) == actions.end()) {
             usage();
@@ -105,6 +91,6 @@ Parse::usage() {
                    "  -c    print the character counts\n"
                    "  -w    print the word counts\n"
                    "  -l    print the newline counts\n"
-                   "  -a    print all information");
+                   "  -a    print more information(comment/code/blank line counts)");
     cout << usage;
 }
