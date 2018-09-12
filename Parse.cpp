@@ -29,25 +29,25 @@ Parse::Parse(int argc, char const ** argv) {
 
 void
 Parse::setup() {
-    registerAction("-c", [&]() {
+    registerOption("-c", [&]() {
         for (auto &f : counters) {
             string append = " Character: " + to_string(f.getCharacterNum());
             output_per_file[f.getFilename()] += append;
         }
     });
-    registerAction("-w", [&]() {
+    registerOption("-w", [&]() {
         for (auto &f : counters) {
             string append = " Word: " + to_string(f.getWordNum());
             output_per_file[f.getFilename()] += append;
         }
     });   
-    registerAction("-l", [&]() {
+    registerOption("-l", [&]() {
         for (auto &f : counters) {
             string append = " Line: " + to_string(f.getLineNum());
             output_per_file[f.getFilename()] += append;
         }
     });
-    registerAction("-a", [&]() {
+    registerOption("-a", [&]() {
         for (auto &f : counters) {
             string append = " Character: " + to_string(f.getCharacterNum());
             append += " Word: " + to_string(f.getWordNum());
@@ -86,7 +86,7 @@ Parse::handleOption() {
 }
 
 void
-Parse::registerAction(string option, function<void(void)> f) {
+Parse::registerOption(string option, function<void(void)> f) {
     actions[option] = f;
 }
 

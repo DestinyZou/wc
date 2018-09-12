@@ -24,7 +24,7 @@ private:
     void usage();
     void handleOption();
     void setup();
-    void registerAction(string option, function<void(void)> f);
+    void registerOption(string option, function<void(void)> f);
 private:
     vector<Counter> counters;
     vector<string> options;

@@ -1,1 +1,1 @@
-g++ -g Counter.cpp main.cpp Parse.cpp -o wc.exe -std=c++11
+g++ Counter.cpp main.cpp Parse.cpp -o wc.exe -std=c++11
