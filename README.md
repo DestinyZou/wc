@@ -16,5 +16,5 @@ wc.exe 是一个常见的工具，它能统计文本文件的字符数、单词�
 * `-c` print the character counts.
 * `-w` print the word counts.
 * `-l` print the newline counts.
-* `-a` print all information.
+* `-a` print more information(comment/code/blank line counts).
 
